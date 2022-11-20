@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
@@ -26,60 +26,59 @@ import styles from "./components/homepage-container/homepage.module.scss";
 import Sidebar from "./components/partials/Sidebar";
 
 function App() {
-  // const [login, setLogin] = useState(0);
-  const [numBedrooms, setNumBedrooms] = useState("showAll");
+	// const [login, setLogin] = useState(0);
+	const [numBedrooms, setNumBedrooms] = useState("showAll");
 
-  return (
-    <div>
-      {/* <SiteHeader props = {setLogin} /> */}
-      <SiteHeader />
+	return (
+		<BrowserRouter>
+			<SiteHeader />
 
-      <Row className={styles["homepage-container"]}>
-        <Col sm={2} className={styles["sidebar-container"]}>
-          <Sidebar setNumBedrooms={setNumBedrooms} />
-        </Col>
+			<Row className={styles["homepage-container"]}>
+				<Col sm={2} className={styles["sidebar-container"]}>
+					<Sidebar setNumBedrooms={setNumBedrooms} />
+				</Col>
 
-        <Col sm={10}>
-          <Routes>
-            {/* <Route path ="/user/:userID/delete" element={<Auth component={UserDetails} />} /> */}
-            <Route
-              path="/api/v1/profile"
-              element={<Auth component={UserDetails} />}
-            />{" "}
-            <Route path="/" element={<Homepage numBedrooms={numBedrooms} />} />
-            <Route
-              path="/api/v1/auth/login"
-              element={<Guest component={Login} />}
-            />
-            <Route
-              path="/api/v1/profile"
-              element={<Auth component={UserProfile} />}
-            />
-            <Route path="/api/v1/auth/register" element={<SignUp />} />
-            <Route path="/user/:userID" element={<Homepage />} />
-            <Route
-              path="/api/v1/app/show_properties/:propID"
-              element={<PropertyIdPage />}
-            />
-            <Route
-              path="/api/v1/app/create_properties"
-              element={<CreateProperties />}
-            />
-            <Route
-              path="/api/v1/app/edit_properties/:propID"
-              element={<EditProperty />}
-            />
-            <Route
-              path="/api/v1/board/show_properties/:userID"
-              element={<PropertyBoard />}
-            />
-          </Routes>
-        </Col>
-      </Row>
+				<Col sm={10}>
+					<Routes>
+						{/* <Route path ="/user/:userID/delete" element={<Auth component={UserDetails} />} /> */}
+						<Route
+							path="/api/v1/profile"
+							element={<Auth component={UserDetails} />}
+						/>{" "}
+						<Route path="/" element={<Homepage numBedrooms={numBedrooms} />} />
+						<Route
+							path="/api/v1/auth/login"
+							element={<Guest component={Login} />}
+						/>
+						<Route
+							path="/api/v1/profile"
+							element={<Auth component={UserProfile} />}
+						/>
+						<Route path="/api/v1/auth/register" element={<SignUp />} />
+						<Route path="/user/:userID" element={<Homepage />} />
+						<Route
+							path="/api/v1/app/show_properties/:propID"
+							element={<PropertyIdPage />}
+						/>
+						<Route
+							path="/api/v1/app/create_properties"
+							element={<CreateProperties />}
+						/>
+						<Route
+							path="/api/v1/app/edit_properties/:propID"
+							element={<EditProperty />}
+						/>
+						<Route
+							path="/api/v1/board/show_properties/:userID"
+							element={<PropertyBoard />}
+						/>
+					</Routes>
+				</Col>
+			</Row>
 
-      <ToastContainer />
-    </div>
-  );
+			<ToastContainer />
+		</BrowserRouter>
+	);
 }
 
 export default App;
