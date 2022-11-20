@@ -30,7 +30,7 @@ function App() {
 	const [numBedrooms, setNumBedrooms] = useState("showAll");
 
 	return (
-		<BrowserRouter>
+		<div>
 			<SiteHeader />
 
 			<Row className={styles["homepage-container"]}>
@@ -77,7 +77,7 @@ function App() {
 			</Row>
 
 			<ToastContainer />
-		</BrowserRouter>
+		</div>
 	);
 }
 
