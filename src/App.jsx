@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
@@ -31,6 +31,7 @@ function App() {
 
 	return (
 		<div>
+			{/* <SiteHeader props = {setLogin} /> */}
 			<SiteHeader />
 
 			<Row className={styles["homepage-container"]}>
